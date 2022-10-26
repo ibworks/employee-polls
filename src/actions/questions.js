@@ -6,8 +6,8 @@ export const types = {
 }
 
 export const getAll = () => async (dispatch) => {
-    const allQuestions = Object.values(await _getQuestions());
-    const action = { allQuestions, type: types.send };
+    const all = Object.values(await _getQuestions());
+    const action = { all, type: types.send };
     dispatch(action);
 }
 
@@ -22,3 +22,7 @@ export const answer = (questionId, userId, option) => (dispatch) => {
 }
 
 export const logOut = () => ({ type: types.logOut });
+
+const _default = { getAll, add, answer };
+
+export default _default;

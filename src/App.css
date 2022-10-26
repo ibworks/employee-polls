@@ -8,6 +8,7 @@
   justify-content: space-between;
   padding: 1rem;
   background-color: lightgray;
+  min-height: 2rem;
 }
 
 .nav {
@@ -18,16 +19,30 @@
 
 .user-menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
   padding-right: 2rem;
-  width: 13rem;
+  width: 20rem;
 }
 
 .content {
   text-align: center;
   display: flex;
+  flex-wrap:wrap;
   width: 100%;
   justify-content: center;
+  margin-top: 2rem;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+select {
+  width: 20rem;
+  padding: .5rem;
+  font-size: 1rem;
 }
 
 img{
@@ -36,12 +51,13 @@ img{
 }
 
 .avatar-small{
-  height: 2rem;
+  width: 3rem;
 }
 
 .dashboard{
   width:60%;
 }
+
 .question-list{
     border: 1px solid gray;
     padding: 1rem;
@@ -49,12 +65,12 @@ img{
 }
 .question-list-items{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   
 }
 .question-item{
   padding: 1rem;
-  border: 1px solid red;
+  border: 1px solid gray;
   width: 15rem;
 }
 .question-button{
@@ -64,4 +80,34 @@ img{
 }
 .question-button:hover{
   cursor: pointer;
+}
+
+.leaderboard {
+  border:1px solid #C0C0C0;
+  border-collapse:collapse;
+  padding:5px;
+  width: 40%;
+}
+.leaderboard th {
+  border:1px solid #C0C0C0;
+  padding:5px;
+  background:#F0F0F0;
+}
+.leaderboard td {
+  border:1px solid #C0C0C0;
+  padding:1.5rem;
+}
+.user-label-column {
+  width: 20rem;
+}
+
+.user-label {
+  display:flex;
+  align-items:center;
+}
+.user-label-name {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 0.5rem;
 }

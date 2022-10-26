@@ -30,7 +30,7 @@ LoginContainer.propTypes = {
 
 const mapStateToProps = state => ({
     loggedInUser: state.users.loggedInUser,
-    users: state.users.allUsers
+    users: state.users.all
 })
   
 export default connect(

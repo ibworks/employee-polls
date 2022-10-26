@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
+import UserLabel from "./UserLabel";
 
 const Header = ({ loggedInUser, logOut }) => {
-    if (!loggedInUser) return null;
-
-    return (
-        <div className="header">
+    const loggedInContent = (
+        <>
             <div className="nav">
                 <Link to="/">Home</Link>
                 <Link to="/leaderboard">Leaderboard</Link>
                 <Link to="/add">New</Link>
             </div>
             <div className="user-menu">
-                <img className="avatar-small" src={loggedInUser.avatarURL} alt="Avatar" />
-                <span>{loggedInUser.id}</span>
+                <UserLabel user={loggedInUser} />
                 <Link to="/login" onClick={logOut}>Log out</Link>
-            </div>
+            </div></>
+    );
+    return (
+        <div className="header">
+            {loggedInUser && loggedInContent}
         </div>);
 };
 

@@ -18,7 +18,7 @@ const DashboardContainer = ({ user, questions }) => {
 
 const mapStateToProps = state => ({
     user: state.users.loggedInUser,
-    questions: state.questions.allQuestions,
+    questions: state.questions.all,
 })
 
 export default connect(

@@ -14,7 +14,7 @@ const QuestionContainer = ({ questions }) => {
 
 
 const mapStateToProps = state => ({
-    questions: state.questions.allQuestions
+    questions: state.questions.all
 })
   
 export default connect(mapStateToProps, null)(QuestionContainer)

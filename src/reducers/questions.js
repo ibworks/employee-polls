@@ -1,22 +1,22 @@
 import {types as QuestionActionTypes } from "../actions/questions";
 
 const initialState = {
-  allQuestions: [],
+  all: [],
 }
 
 const { send, add, answer } = QuestionActionTypes;
 
-const users = (state = initialState, action) => {
+const questions = (state = initialState, action) => {
   switch (action.type) {
     case send:
-      const { allQuestions } = action;
-      return { ...state, allQuestions }
+      const { all } = action;
+      return { ...state, all }
     case add:
       const { newQuestion } = action;
-      return { ...state, allQuestions: state.allQuestions.join(newQuestion) };
+      return { ...state, all: state.all.join(newQuestion) };
     case answer:
       const { questionId, userId, option } = action;
-      const questions = state.allQuestions;
+      const questions = state.all;
 
       questions.forEach(q => {
         if (q.id === questionId) {
@@ -30,10 +30,10 @@ const users = (state = initialState, action) => {
         }
       });
       
-      return { ...state, allQuestions: questions };
+      return { ...state, all: questions };
     default:
       return state;
   }
 }
 
-export default users;
+export default questions;
