@@ -8,8 +8,8 @@ const Login = ({ users, logInAs }) => {
         <>
             <h1>Pick a user to impersonate</h1>
             <div className="break"/>
-            <select onChange={handleChange}>
-                <option disabled selected value> -- select an option -- </option>
+            <select defaultValue="0" onChange={handleChange}>
+                <option disabled value="0"> -- select an option -- </option>
                 {users.map(user => <option key={user.id} value={user.id}>{user.name}</option>)}
             </select>
         </>

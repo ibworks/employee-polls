@@ -4,7 +4,7 @@ const Dashboard = ({ user, questions, showQuestion }) => {
     if (!user || !questions) return null;
     
     const { id } = user;
-    const unanswered = questions.filter(q => q.author !== id && !q.optionOne.votes.join(q.optionTwo).includes(id));
+    const unanswered = questions.filter(q => !q.optionOne.votes.join(q.optionTwo).includes(id));
     const answered = questions.filter(q => q.optionOne.votes.join(q.optionTwo).includes(id));
     
     return (
