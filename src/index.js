@@ -2,16 +2,25 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import reducer from './reducers';
+import { createStore,applyMiddleware,compose } from 'redux'
 import './index.css';
+import thunk from 'redux-thunk'
+import {getAll as GetAllUsers } from "./actions/users";
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducer,
+  composeEnhancers(applyMiddleware(thunk)),
+);
+
+store.dispatch(GetAllUsers());
 
 root.render(
-  
   <Provider store={store}>
     <BrowserRouter>
       <App />
