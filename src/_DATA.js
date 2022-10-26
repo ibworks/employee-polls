@@ -3,7 +3,7 @@ let users = {
       id: 'sarahedo',
       password:'password123',
       name: 'Sarah Edo',
-      avatarURL: null,
+      avatarURL: 'https://media.istockphoto.com/vectors/user-avatar-profile-icon-black-vector-illustration-on-transparent-vector-id1313958250?b=1&k=20&m=1313958250&s=170667a&w=0&h=9SnigCTdaqo6v-R24TabGaIczGLG-5m6rkY6cMSDbgM=',
       answers: {
         "8xf0y6ziyjabvozdd253nd": 'optionOne',
         "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -16,7 +16,7 @@ let users = {
       id: 'tylermcginnis',
       password:'abc321',
       name: 'Tyler McGinnis',
-      avatarURL: null,
+      avatarURL: 'https://media.istockphoto.com/vectors/user-avatar-profile-icon-black-vector-illustration-on-transparent-vector-id1313958250?b=1&k=20&m=1313958250&s=170667a&w=0&h=9SnigCTdaqo6v-R24TabGaIczGLG-5m6rkY6cMSDbgM=',
       answers: {
         "vthrdm985a262al8qx3do": 'optionOne',
         "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -27,7 +27,7 @@ let users = {
       id: 'mtsamis',
       password:'xyz123',
       name: 'Mike Tsamis',
-      avatarURL: null,
+      avatarURL: 'https://media.istockphoto.com/vectors/user-avatar-profile-icon-black-vector-illustration-on-transparent-vector-id1313958250?b=1&k=20&m=1313958250&s=170667a&w=0&h=9SnigCTdaqo6v-R24TabGaIczGLG-5m6rkY6cMSDbgM=',
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
         "vthrdm985a262al8qx3do": 'optionTwo',
@@ -39,7 +39,7 @@ let users = {
       id: 'zoshikanlu',
       password:'pass246',
       name: 'Zenobia Oshikanlu',
-      avatarURL: null,
+      avatarURL: 'https://media.istockphoto.com/vectors/user-avatar-profile-icon-black-vector-illustration-on-transparent-vector-id1313958250?b=1&k=20&m=1313958250&s=170667a&w=0&h=9SnigCTdaqo6v-R24TabGaIczGLG-5m6rkY6cMSDbgM=',
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
       },
