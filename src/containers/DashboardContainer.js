@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const DashboardContainer = ({ user, questions }) => {
     const navigate = useNavigate();
-    const showQuestion = id => navigate(`/question/${id}`);
+    const showQuestion = id => navigate(`/questions/${id}`);
 
     return (
         <Dashboard

@@ -23,8 +23,12 @@ const AppContainer = ({ loggedInUser, logOut, getAllUsers, getAllQuestions }) =>
             <Route exact path="/login" element={<LoginContainer />} />
             <Route exact path="/leaderboard" element={<LeaderboardContainer />} />
             <Route exact path="/add" element={<AddContainer />} />
-            <Route exact path="/question/:id" element={<QuestionContainer />} />
-            <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+            <Route exact path="/questions/:id" element={<QuestionContainer />} />
+            <Route path="*" element={
+                <div>
+                    <h2>404 Page not found</h2>
+                    <img src="https://csshint.com/wp-content/uploads/2019/06/HTML-Funny-404-Pages.gif" alt="404" />
+                </div>} />
         </Routes>);
     const loggedOutRoutes = (
         <Routes>

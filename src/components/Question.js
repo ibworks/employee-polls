@@ -25,11 +25,11 @@ const Question = ({ createdByUser, question, onSubmit, answer }) => {
             <form className="question-form" onSubmit={handleSubmit} >
                 <h1>Would you rather:</h1>
                 <div>
-                    <input name="answer" type="radio" checked={selectedOption === 1} onClick={e => setSelectedOption(1)} />
+                    <input name="answer" type="radio" defaultChecked={selectedOption === 1} onClick={e => setSelectedOption(1)} />
                     <label htmlFor="option-one">{optionLabel(optionOne)}</label>
                 </div>
                 <div>
-                    <input name="answer" type="radio" checked={selectedOption === 2} onClick={e => setSelectedOption(2)} />
+                    <input name="answer" type="radio" defaultChecked={selectedOption === 2} onClick={e => setSelectedOption(2)} />
                     <label htmlFor="option-one">{optionLabel(optionTwo)}</label>
                 </div>
 

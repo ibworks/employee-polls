@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux'
 import Question from "../components/Question";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { QuestionActions } from "../actions";
 
 const QuestionContainer = ({ answerQuestion, loggedInUser, questions, users }) => {
@@ -9,16 +9,22 @@ const QuestionContainer = ({ answerQuestion, loggedInUser, questions, users }) =
     const [createdByUser, setCreatedByUser] = useState(null);
     const [question, setQuestion] = useState(null);
 
+    const navigate = useNavigate();
     const params = useParams();
     const { id: questionId } = params;
     const { id: userId } = loggedInUser;
-   
+    
     useEffect(() => { 
         const filteredQuestions = questions.filter(q => q.id === questionId);
         const _question = filteredQuestions.length === 0 ? null : filteredQuestions[0];
 
-        setQuestion(_question);
-    }, [questionId, questions]);
+        if (!_question) {
+            navigate("/notFound");
+        } else {
+            setQuestion(_question);
+        }
+
+    }, [navigate, questionId, questions]);
 
     useEffect(() => { 
         if (question === null) {
@@ -44,6 +50,7 @@ const QuestionContainer = ({ answerQuestion, loggedInUser, questions, users }) =
     
     const handleSubmit = (option) => {
         answerQuestion(questionId, userId, option);
+        navigate("/");
     }
 
 

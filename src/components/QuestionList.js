@@ -1,7 +1,9 @@
 import QuestionListItem from "./QuestionListItem";
 
 const QuestionList = ({ title, questions, showQuestion }) => {
-    const items = questions.map(q => (
+    const items = questions
+        .sort((a, b) => b.timestamp - a.timestamp)
+        .map(q => (
         <QuestionListItem
             key={q.id}
             question={q}

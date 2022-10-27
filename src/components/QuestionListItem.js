@@ -1,11 +1,11 @@
 const QuestionListItem = ({ question, showQuestion }) => {
-    const { author, timestamp } = question;
-    const date = new Date(timestamp * 1000).toLocaleString();
+    const { author, id, timestamp } = question;
+    const date = new Date(timestamp).toLocaleString();
 
     const handleClick = e => showQuestion();
 
     return (
-        <div className="question-item">
+        <div className="question-item" title={id}>
             <h2>{author}</h2>
             <h4>{date}</h4>
             <button
