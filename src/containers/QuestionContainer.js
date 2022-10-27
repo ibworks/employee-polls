@@ -4,7 +4,7 @@ import Question from "../components/Question";
 import { useNavigate, useParams } from "react-router-dom";
 import { QuestionActions } from "../actions";
 
-const QuestionContainer = ({ answerQuestion, loggedInUser, questions, users }) => {
+const QuestionContainer = ({ answerQuestion, authedUser, questions, users }) => {
     const [answer, setAnswer] = useState(0);
     const [createdByUser, setCreatedByUser] = useState(null);
     const [question, setQuestion] = useState(null);
@@ -12,7 +12,7 @@ const QuestionContainer = ({ answerQuestion, loggedInUser, questions, users }) =
     const navigate = useNavigate();
     const params = useParams();
     const { id: questionId } = params;
-    const { id: userId } = loggedInUser;
+    const { id: userId } = authedUser;
     
     useEffect(() => { 
         const filteredQuestions = questions.filter(q => q.id === questionId);
@@ -62,7 +62,7 @@ const QuestionContainer = ({ answerQuestion, loggedInUser, questions, users }) =
 const mapStateToProps = state => ({
     questions: state.questions.all,
     users: state.users.all,
-    loggedInUser: state.users.loggedInUser,
+    authedUser: state.users.authedUser,
 });
 
 export default connect(mapStateToProps, {answerQuestion: QuestionActions.answer})(QuestionContainer)

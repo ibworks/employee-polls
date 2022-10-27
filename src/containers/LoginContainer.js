@@ -5,14 +5,14 @@ import {logInAs} from '../actions/users';
 import Login from "../components/Login";
 import { useNavigate } from "react-router-dom";
 
-const LoginContainer = ({ loggedInUser, logInAs, users }) => {
+const LoginContainer = ({ authedUser, logInAs, users }) => {
     const navigate = useNavigate();
 
     useEffect(() => { 
-        if (loggedInUser) {
+        if (authedUser) {
             navigate("/");
         }
-    }, [loggedInUser, navigate]);
+    }, [authedUser, navigate]);
 
     return (
     <Login users={users} logInAs={(id) => {
@@ -29,7 +29,7 @@ LoginContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    loggedInUser: state.users.loggedInUser,
+    authedUser: state.users.authedUser,
     users: state.users.all
 })
   

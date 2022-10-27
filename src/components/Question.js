@@ -1,21 +1,22 @@
 import { useState } from "react";
 import UserLabel from "./UserLabel";
 
-const Question = ({ createdByUser, question, onSubmit, answer }) => {
+const Question = ({ createdByUser, question, onSubmit, savedAnswer }) => {
 
-    const [selectedOption, setSelectedOption] = useState(answer);
+    const [answer, setAnswer] = useState(savedAnswer);
 
     if (!question) return null;
-    
+
     const { optionOne, optionTwo } = question;
+    const options = [{ id: 'optionOne', value: optionOne }, { id: 'optionTwo', value: optionTwo }];
     const totalVotes = optionOne.votes.length + optionTwo.votes.length;
 
     const stats = (option) => ` (${option.votes.length} votes: ${(option.votes.length / totalVotes * 100).toFixed(0)}%)`;
-    const optionLabel = (option) => `${option.text}${answer > 0 ? stats(option): ''}`;
+    const label = (option) => `${option.text}${savedAnswer > 0 ? stats(option): ''}`;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(selectedOption);
+        onSubmit(answer);
     }
 
     return (
@@ -24,16 +25,16 @@ const Question = ({ createdByUser, question, onSubmit, answer }) => {
             <UserLabel className="question-user-label" user={createdByUser} />
             <form className="question-form" onSubmit={handleSubmit} >
                 <h1>Would you rather:</h1>
-                <div>
-                    <input name="answer" type="radio" defaultChecked={selectedOption === 1} onClick={e => setSelectedOption(1)} />
-                    <label htmlFor="option-one">{optionLabel(optionOne)}</label>
-                </div>
-                <div>
-                    <input name="answer" type="radio" defaultChecked={selectedOption === 2} onClick={e => setSelectedOption(2)} />
-                    <label htmlFor="option-one">{optionLabel(optionTwo)}</label>
-                </div>
+                {
+                    options.map((o) => (
+                        <div key={o.id}>
+                            <input name="answer" type="radio" defaultChecked={savedAnswer === o.id} onClick={e => setAnswer(o.id)} />
+                            <label htmlFor={o.id}>{label(o.value)}</label>
+                        </div>
+                    ))
+                }
 
-                <input type="submit" value="Submit" disabled={answer > 0 || selectedOption < 1} />
+                <input type="submit" value="Save Answer" disabled={!!savedAnswer || !answer} />
             </form>
         </div>
     );

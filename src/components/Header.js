@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import UserLabel from "./UserLabel";
 
-const Header = ({ loggedInUser, logOut }) => {
+const Header = ({ authedUser, logOut }) => {
     const loggedInContent = (
         <>
             <div className="nav">
@@ -10,13 +10,13 @@ const Header = ({ loggedInUser, logOut }) => {
                 <Link to="/add">New</Link>
             </div>
             <div className="user-menu">
-                <UserLabel user={loggedInUser} />
+                <UserLabel user={authedUser} />
                 <Link to="/login" onClick={logOut}>Log out</Link>
             </div></>
     );
     return (
         <div className="header">
-            {loggedInUser && loggedInContent}
+            {authedUser && loggedInContent}
         </div>);
 };
 

@@ -17,7 +17,7 @@ const DashboardContainer = ({ user, questions }) => {
 }
 
 const mapStateToProps = state => ({
-    user: state.users.loggedInUser,
+    user: state.users.authedUser,
     questions: state.questions.all,
 })
 

@@ -12,8 +12,8 @@ const questions = (state = initialState, action) => {
       const { all } = action;
       return { ...state, all }
     case add:
-      const { newQuestion } = action;
-      return { ...state, all: state.all.join(newQuestion) };
+      const { question } = action;
+      return { ...state, all: state.all.concat(question) };
     case answer:
       const { questionId, userId, option } = action;
       const questions = state.all;

@@ -4,12 +4,12 @@ import {logOut} from '../actions/users';
 import  Header from "../components/Header";
 import { Route, Routes, Navigate } from "react-router-dom";
 import '../App.css';
-import {AddContainer, DashboardContainer, LeaderboardContainer, LoginContainer, QuestionContainer} from "./index";
+import {DashboardContainer, LeaderboardContainer, LoginContainer, NewQuestionContainer, QuestionContainer} from "./index";
 import { getAll as getAllUsers } from "../actions/users";
 import { getAll as getAllQuestions } from "../actions/questions";
 import { useNavigate } from "react-router-dom";
 
-const AppContainer = ({ loggedInUser, logOut, getAllUsers, getAllQuestions }) => {
+const AppContainer = ({ authedUser, logOut, getAllUsers, getAllQuestions }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const AppContainer = ({ loggedInUser, logOut, getAllUsers, getAllQuestions }) =>
             <Route exact path="/" element={<DashboardContainer />} />
             <Route exact path="/login" element={<LoginContainer />} />
             <Route exact path="/leaderboard" element={<LeaderboardContainer />} />
-            <Route exact path="/add" element={<AddContainer />} />
+            <Route exact path="/add" element={<NewQuestionContainer />} />
             <Route exact path="/questions/:id" element={<QuestionContainer />} />
             <Route path="*" element={
                 <div>
@@ -37,16 +37,16 @@ const AppContainer = ({ loggedInUser, logOut, getAllUsers, getAllQuestions }) =>
 
     return (
         <div className="app">
-            <Header loggedInUser={loggedInUser} logOut={logOut} />
+            <Header authedUser={authedUser} logOut={logOut} />
             <div className="content">
-                { loggedInUser ? loggedInRoutes : loggedOutRoutes }                
+                { authedUser ? loggedInRoutes : loggedOutRoutes }                
             </div>
         </div>
     )
 }
 
 const mapStateToProps = state => ({
-    loggedInUser: state.users.loggedInUser
+    authedUser: state.users.authedUser
 });
     
 export default connect(
