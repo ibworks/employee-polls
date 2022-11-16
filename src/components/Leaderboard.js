@@ -2,7 +2,12 @@ import UserLabel from "./UserLabel";
 
 const Leaderboard = ({ users = [] }) => {
     const rows = users
-        .sort((a, b) => b.rank - a.rank)
+        .sort((a, b) => {
+            const aRank = a.answers.length + (a.questions || []).length;
+            const bRank = b.answers.length + (b.questions || []).length;
+            
+            return bRank - aRank;
+        })
         .map((u) => (
             <tr key={u.id}>
                 <td><UserLabel user={u} /></td>

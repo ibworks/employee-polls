@@ -12,7 +12,7 @@ const [optionOne, setOptionOne] = useState();
     return (
         <div className="question">
             <form className="question-form" onSubmit={handleSubmit} >
-                <h1>Would You Rathe</h1>
+                <h1>Would You Rather</h1>
                 <h4>Create Your Own Poll</h4>
 
                 <input name="1" placeholder="Option 1" onChange={e => setOptionOne(e.target.value)} />

@@ -14,14 +14,14 @@ const questions = (state = initialState, action) => {
     case add:
       const { question } = action;
       return { ...state, all: state.all.concat(question) };
-    case answer:
-      const { questionId, userId, option } = action;
+    case answer: {
+      const { questionId, userId, answer } = action;
       const questions = state.all;
 
       questions.forEach(q => {
         if (q.id === questionId) {
-          switch (Number(option)) {
-            case 1:
+          switch (answer) {
+            case 'optionOne':
               q.optionOne.votes.push(userId);
               break;
             default:
@@ -31,6 +31,7 @@ const questions = (state = initialState, action) => {
       });
       
       return { ...state, all: questions };
+    }
     default:
       return state;
   }

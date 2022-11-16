@@ -20,10 +20,10 @@ export const save = (question) => async (dispatch) => {
 }
 
 export const answer = (qid, userId, answer) => async (dispatch, getState) => {
-    const { users:{authedUser}} = getState();
+    const { users: { authedUser: { id } }} = getState();
     const action = { questionId:qid, userId, answer, type: types.answer };
     
-    await api._saveQuestionAnswer({ authedUser, qid, answer });
+    await api._saveQuestionAnswer({ authedUser:id, qid, answer });
     dispatch(action);
 }
 

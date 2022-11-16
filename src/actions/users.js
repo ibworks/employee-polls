@@ -13,7 +13,6 @@ export const getAll = () => async (dispatch) => {
         const answersArray = entries.map(e => ({ questionId: e[0], answer: e[1] }));
         u.answers = answersArray;
         u.questions = u.questions || [];
-        u.rank = u.answers.length + (u.questions || []).length;
     });
 
     const action = { all, type: types.send };

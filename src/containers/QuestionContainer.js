@@ -40,23 +40,23 @@ const QuestionContainer = ({ answerQuestion, authedUser, questions, users }) => 
     }, [question, users]);
 
     useEffect(() => { 
-        const _answer = question === null ? 0
-            : question.optionOne.votes.includes(userId) ? 1
-                : question.optionTwo.votes.includes(userId) ? 2
-                    : 0;
+        const _answer = question === null ? ''
+            : question.optionOne.votes.includes(userId) ? 'optionOne'
+                : question.optionTwo.votes.includes(userId) ? 'optionTwo'
+                    : '';
         
         setAnswer(_answer);
     }, [question, userId]);
     
     const handleSubmit = (option) => {
         answerQuestion(questionId, userId, option);
-        navigate("/");
+        setAnswer(option.id);
     }
 
 
     return question === null || createdByUser === null
         ? null
-        : (<Question answer={answer} createdByUser={createdByUser} question={question} onSubmit={handleSubmit} />);
+        : (<Question savedAnswer={answer} createdByUser={createdByUser} question={question} onSubmit={handleSubmit} />);
 }
 
 const mapStateToProps = state => ({
