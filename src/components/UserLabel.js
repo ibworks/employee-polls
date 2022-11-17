@@ -1,12 +1,16 @@
 const UserLabel = ({ user }) => {
     if (!user) return null;
 
-    return (
-        <div className="user-label">
+    const avatar = user.avatarURL.length > 0
+        ? (
             <img
                 className="avatar-small"
                 src={user.avatarURL}
-                alt="Avatar" />
+                alt="Avatar" />)
+        : null;
+    return (
+        <div className="user-label">
+            { avatar }            
             <div className="user-label-name">
                 <strong>{user.name}</strong>
                 {user.id}

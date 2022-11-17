@@ -2,15 +2,13 @@ import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import {logOut} from '../actions/users';
 import  Header from "../components/Header";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import '../App.css';
 import {DashboardContainer, LeaderboardContainer, LoginContainer, NewQuestionContainer, QuestionContainer} from "./index";
 import { getAll as getAllUsers } from "../actions/users";
 import { getAll as getAllQuestions } from "../actions/questions";
-import { useNavigate } from "react-router-dom";
 
 const AppContainer = ({ authedUser, logOut, getAllUsers, getAllQuestions }) => {
-    const navigate = useNavigate();
 
     useEffect(() => {
         getAllUsers();

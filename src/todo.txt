@@ -1,4 +1,0 @@
-Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
-The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
-The user can alternate between viewing answered and unanswered polls.
-The unanswered questions are shown by default.
