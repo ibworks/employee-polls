@@ -17,9 +17,9 @@ const Dashboard = ({ user, questions, showQuestion }) => {
         <div className="dashboard">
             <div className="toggle">
                 <input id="r1" name="answer" type="radio" defaultChecked={index === 0} onClick={e => setIndex(0)} /> 
-                <label for="r1">New</label>
+                <label htmlFor="r1">New</label>
                 <input id="r2" name="answer" type="radio" defaultChecked={index === 1} onClick={e => setIndex(1)} /> 
-                <label for="r2">Completed</label>
+                <label htmlFor="r2">Completed</label>
             </div>
             {
                 index === 0
