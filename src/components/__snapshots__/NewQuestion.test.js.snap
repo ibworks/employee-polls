@@ -18,21 +18,27 @@ Object {
           <h4>
             Create Your Own Poll
           </h4>
+          <div>
+            <input
+              class="question-textBox"
+              data-testid="tb1"
+              name="1"
+              placeholder="Option 1"
+            />
+            or
+            <input
+              class="question-textBox"
+              data-testid="tb2"
+              name="2"
+              placeholder="Option 2"
+            />
+          </div>
           <input
-            data-testid="tb1"
-            name="1"
-            placeholder="Option 1"
-          />
-          <input
-            data-testid="tb2"
-            name="2"
-            placeholder="Option 2"
-          />
-          <input
+            class="question-button"
             data-testid="btnSubmit"
             disabled=""
             type="submit"
-            value="Save Answer"
+            value="Save"
           />
         </form>
       </div>
@@ -52,21 +58,27 @@ Object {
         <h4>
           Create Your Own Poll
         </h4>
+        <div>
+          <input
+            class="question-textBox"
+            data-testid="tb1"
+            name="1"
+            placeholder="Option 1"
+          />
+          or
+          <input
+            class="question-textBox"
+            data-testid="tb2"
+            name="2"
+            placeholder="Option 2"
+          />
+        </div>
         <input
-          data-testid="tb1"
-          name="1"
-          placeholder="Option 1"
-        />
-        <input
-          data-testid="tb2"
-          name="2"
-          placeholder="Option 2"
-        />
-        <input
+          class="question-button"
           data-testid="btnSubmit"
           disabled=""
           type="submit"
-          value="Save Answer"
+          value="Save"
         />
       </form>
     </div>
