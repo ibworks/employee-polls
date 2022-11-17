@@ -23,19 +23,23 @@ const Question = ({ createdByUser, question, onSubmit, savedAnswer }) => {
     return (
         <div className="question">
             <h1>Poll by</h1>
-            <UserLabel className="question-user-label" user={createdByUser} />
+            <div className="question-author">
+                <UserLabel className="question-user-label" user={createdByUser} />
+            </div>
             <form className="question-form" onSubmit={handleSubmit} >
                 <h1>Would you rather:</h1>
-                {
-                    options.map((o) => (
-                        <div key={o.id}>
-                            <input name="answer" type="radio" defaultChecked={savedAnswer === o.id} onClick={e => setAnswer(o.id)} />
-                            <label htmlFor={o.id}>
-                                {`${o.value.text}${submitted ? stats(o.value): ''}`}
-                            </label>
-                        </div>
-                    ))
-                }
+                <div className="question-answers">
+                    {
+                        options.map((o) => (
+                            <div key={o.id}>
+                                <input id={o.id} name="answer" type="radio" defaultChecked={savedAnswer === o.id} onClick={e => setAnswer(o.id)} />
+                                <label htmlFor={o.id}>
+                                    {`${o.value.text}${submitted ? stats(o.value): ''}`}
+                                </label>
+                            </div>
+                        ))
+                    }
+                </div>
 
                 {submitted
                     ? null

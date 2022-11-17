@@ -17,19 +17,21 @@ const Leaderboard = ({ users = [] }) => {
         ));
     
     return (
-        <table className="leaderboard">
-            <thead>
-                <tr>
-                    <th className="user-label-column">Users</th>
-                    <th>Answered</th>
-                    <th>Created</th>
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
-        </table>);
-        
+        <div className="leaderboard">
+            <h1>Leaderboard</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th className="user-label-column">Users</th>
+                        <th>Answered</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
+        </div>);
 };
 
 export default Leaderboard;
